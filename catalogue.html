@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue - Itaria Exim India - Global Trade Excellence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* =====================
+           CSS Variables
+           ===================== */
+        :root {
+            --primary-bg: #050505;
+            --secondary-bg: #0a0a0a;
+            --card-bg: #111111;
+            --text-main: #ffffff;
+            --text-muted: #888888;
+            --accent-gold: #D4AF37;
+            --accent-gold-light: #F4Cf57;
+            --accent-gold-dark: #AA8828;
+            --border-color: #333333;
+            --glass-bg: rgba(20, 20, 20, 0.8);
+            --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F4Cf57 50%, #D4AF37 100%);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.6);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.8);
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* =====================
+           Reset & Base
+           ===================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-main);
+            background-color: var(--primary-bg);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* =====================
+           Animation Keyframes
+           ===================== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* =====================
+           Header Styles
+           ===================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: transparent;
+            transition: all 0.4s var(--transition-smooth);
+        }
+
+        .header.scrolled {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .header.scrolled .logo-img {
+            max-width: 140px;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 25px 40px;
+            text-align: center;
+        }
+
+        .logo {
+            display: inline-block;
+            margin-bottom: 5px;
+            transition: all 0.4s ease;
+        }
+
+        .logo-img {
+            max-width: 180px;
+            height: auto;
+            transition: all 0.4s ease;
+        }
+
+        .logo-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 3px;
+            margin-bottom: 3px;
+            font-family: 'Syne', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .logo-subtitle {
+            font-size: 11px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+            margin-top: 20px;
+        }
+
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            position: relative;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+            position: relative;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #ffffff;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background: var(--card-bg);
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            padding: 100px 30px 30px;
+            transition: right 0.4s var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            overflow-y: auto;
+            border-left: 1px solid var(--border-color);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 16px 0;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--accent-gold);
+            padding-left: 12px;
+        }
+
+        /* =====================
+           Hero Section
+           ===================== */
+        .hero {
+            width: 100%;
+            height: 65vh;
+            min-height: 500px;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #2d2d2d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://i.pinimg.com/1200x/c9/92/87/c99287fd489b918f49318aa3f76897ac.jpg') center/cover;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: #ffffff;
+            z-index: 3;
+            position: relative;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Syne', sans-serif;
+            color: #ffffff;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4);
+            letter-spacing: 2px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: 1px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        /* =====================
+           Main Content
+           ===================== */
+        .main-content {
+            min-height: 100vh;
+            background: var(--primary-bg);
+        }
+
+        .content-wrapper {
+            display: flex;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 60px 30px;
+            gap: 40px;
+            position: relative;
+        }
+
+        /* =====================
+           Filter Sidebar
+           ===================== */
+        .filter-sidebar {
+            width: 300px;
+            flex-shrink: 0;
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 32px 28px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            position: sticky;
+            top: 140px;
+            height: fit-content;
+            transition: all 0.3s ease;
+            animation: slideInDown 0.6s ease-out;
+        }
+
+        .filter-section {
+            margin-bottom: 32px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .filter-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .filter-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 20px;
+            color: var(--text-main);
+            margin: 0 0 20px 0;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .filter-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient-gold);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .filter-section:hover .filter-title::after {
+            width: 70px;
+        }
+
+        .filter-options {
+
+.filter-btn {
+    background: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.25s var(--transition-smooth);
+    letter-spacing: 0.3px;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(184, 153, 111, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(184, 153, 111, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .filter-btn:hover::before {
+            left: 100%;
+        }
+
+        .filter-btn:hover {
+            color: var(--accent-gold);
+            border-color: var(--accent-light);
+            background: rgba(184, 153, 111, 0.05);
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, rgba(184, 153, 111, 0.12), rgba(184, 153, 111, 0.08));
+            color: var(--accent-dark);
+            border-color: var(--accent-gold);
+            font-weight: 600;
+            padding-left: 24px;
+            box-shadow: 0 3px 10px rgba(184, 153, 111, 0.2);
+        }
+
+        .filter-btn.active::after {
+            content: '✓';
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        /* =====================
+           Content Area
+           ===================== */
+        .content-area {
+            flex: 1;
+            min-width: 0;
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+
+        .gallery-section {
+            width: 100%;
+        }
+
+        .products-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 40px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s var(--transition-smooth),
+                box-shadow 0.3s var(--transition-smooth),
+                opacity 0.6s ease-out,
+                transform 0.6s ease-out;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+            position: relative;
+            border: 1px solid var(--border-color);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--secondary-bg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px) !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-card.visible {
+            opacity: 1;
+            transform: translateY(0) !important;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 15px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-info h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 18px;
+            margin: 0;
+            margin: 0 0 6px 0;
+            color: var(--text-main);
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        .product-info p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.4;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            font-weight: 400;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .download-btn,
+        .view-catalog-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 15px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            flex: 1;
+            box-sizing: border-box;
+            font-size: 0.9em;
+        }
+
+        .download-btn {
+            background: var(--accent-gold);
+            color: white;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .view-catalog-btn {
+            background: transparent;
+            color: var(--accent-gold);
+            border: 2px solid var(--accent-gold);
+        }
+
+        .download-btn:hover,
+        .view-catalog-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-btn i,
+        .view-catalog-btn i {
+            margin-right: 5px;
+        }
+
+        /* =====================
+           Footer
+           ===================== */
+        .footer {
+            background: var(--secondary-bg);
+            color: var(--text-main);
+            padding: 80px 0 30px;
+            font-family: 'Mulish', sans-serif;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 50px;
+            padding: 0 30px;
+        }
+
+        .footer-logo {
+            margin-bottom: 24px;
+        }
+
+        .footer-logo h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .footer-logo p {
+            font-size: 12px;
+            color: #999;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .footer-about p {
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            color: var(--accent-gold);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links a:hover {
+            background: var(--accent-gold);
+            color: #fff;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(184, 153, 111, 0.4);
+            border-color: var(--accent-gold);
+        }
+
+        .footer-heading {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 28px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 12px;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-gold), transparent);
+            border-radius: 2px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 14px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 8px;
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            display: flex;
+            margin-bottom: 18px;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            color: var(--accent-gold);
+            margin-right: 15px;
+            margin-top: 4px;
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-info p {
+            color: #aaa;
+            margin: 0;
+            line-height: 1.7;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .contact-info a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Download Button */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-gold);
+            color: var(--primary-bg) !important;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 15px 10px 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 5px rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn i {
+            margin-right: 8px;
+            font-size: 12px;
+            color: #2c2416;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(135deg, #d4b57f 0%, #ddc393 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(201, 166, 107, 0.4);
+        }
+
+        .download-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 1px 3px rgba(201, 166, 107, 0.2);
+        }
+
+        .footer-bottom {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: #777;
+            font-size: 13px;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .footer-bottom i {
+            color: var(--accent-gold);
+            margin: 0 3px;
+        }
+
+        /* =====================
+           Responsive Design
+           ===================== */
+        @media (max-width: 1400px) {
+            .products-grid {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .content-wrapper {
+                padding: 50px 20px;
+            }
+
+            .filter-sidebar {
+                width: 280px;
+            }
+
+            .products-grid {
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+                position: absolute;
+                top: 50%;
+                left: 20px;
+                transform: translateY(-50%);
+                z-index: 1002;
+            }
+
+            .header-content {
+                position: relative;
+                padding: 20px;
+            }
+
+            .logo {
+                margin-left: 40px;
+            }
+
+            .content-wrapper {
+                flex-direction: column;
+                padding: 40px 20px;
+                gap: 40px;
+            }
+
+            .filter-sidebar {
+                width: 100%;
+                position: static;
+                margin: 0;
+            }
+
+            .products-grid {
+                gap: 10px;
+            }
+
+            .hero {
+                height: 50vh;
+                min-height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .products-grid {
+                gap: 10px;
+            }
+
+            .product-card {
+                width: 160px;
+            }
+
+            .product-image {
+                height: 140px;
+            }
+
+            .product-image img {
+                max-width: 85%;
+                max-height: 85%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .footer-heading::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .products-grid {
+                gap: 10px;
+            }
+
+            .product-card {
+                border-radius: 12px;
+            }
+
+            .product-details {
+                padding: 16px;
+            }
+
+            .product-title {
+                font-size: 16px;
+                min-height: 44px;
+            }
+
+            .spec {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .filter-options {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-sidebar {
+                padding: 24px 20px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .product-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .content-wrapper {
+                padding: 30px 16px;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <!-- Mobile Toggle Button -->
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Logo -->
+            <div class="logo">
+                <img src="logo.png"
+                    alt="Itaria Exim Logo" class="logo-img">
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="nav">
+                <a href="index.html" class="nav-link"
+                    style="animation: 0.5s ease-out forwards fadeIn; opacity: 0;">Home</a>
+                <a href="collection.html" class="nav-link"
+                    style="animation: 0.5s ease-out 0.1s forwards fadeIn; opacity: 0;">Collection</a>
+                <a href="About.html" class="nav-link"
+                    style="animation: 0.5s ease-out 0.2s forwards fadeIn; opacity: 0;">About</a>
+                <a href="catalogue.html" class="nav-link"
+                    style="animation: 0.5s ease-out 0.3s forwards fadeIn; opacity: 0;">Downloads</a>
+                <a href="#professional" class="nav-link"
+                    style="animation: 0.5s ease-out 0.4s forwards fadeIn; opacity: 0;">Professional</a>
+                <a href="contact.html" class="nav-link"
+                    style="animation: 0.5s ease-out 0.5s forwards fadeIn; opacity: 0;">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="about.html">About</a>
+        <a href="catalogue.html">Downloads</a>
+        <a href="#professional">Professional</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Catalogue</h1>
+                <p>Discover excellence in every tile</p>
+            </div>
+        </section>
+
+        <section class="products-grid">
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=1sOpX7wpEvsOGzvA04Eta3FcHOKX805tC&sz=w400"
+                        alt="3D Collection" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                <div class="product-info">
+                    <h3>3D Collection</h3>
+                    <p class="year">2023</p>
+                </div>
+                <div class="product-actions">
+                    <a href="https://drive.google.com/open?id=1sOpX7wpEvsOGzvA04Eta3FcHOKX805tC&usp=drive_copy"
+                        target="_blank" class="download-btn">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                    <a href="#3d-collection" class="view-catalog-btn">
+                        <i class="fas fa-eye"></i> View Catalog
+                    </a>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="data:image/jpeg;base64,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"
+                        alt="BookMatch Collection">
+                </div>
+                <div class="product-info">
+                    <h3>BookMatch Collection</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1X9qNqVhq4eDrV7KadpFueKbje0nzmnrk&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2023/9/341828702/PX/ZE/TK/40147289/glossy-3d-printed-stone-mural-500x500.jpg"
+                        alt="Carving & Glossy Decor">
+                </div>
+                <div class="product-info">
+                    <h3>Carving & Glossy Decor</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1xEDt-0FiT9CqSEoN43oE-tk_9OmCDfPy&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi2SD4ehD9OsSgsuyZPBS5gq_YOpEYfpqKfA&s"
+                        alt="Carving Vol 1">
+                </div>
+                <div class="product-info">
+                    <h3>Carving Vol 1</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1-nsDb-AY-t1rjGtk8iuGdHO0_dCgIOL-&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=1xM-uWHqSdvvyAfw_IkGBIdj_mVj11QH8&sz=w400"
+                        alt="Carving Vol 2">
+                </div>
+                <div class="product-info">
+                    <h3>Carving Vol 2</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1xM-uWHqSdvvyAfw_IkGBIdj_mVj11QH8&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe0fRbHF1RrrWowEXx3PIpLD4h20WEM13xrg&s"
+                        alt="Carving Vol 3">
+                </div>
+                <div class="product-info">
+                    <h3>Carving Vol 3</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1xY3MSiJy2ot_JCRtXp1IjxJcoIS-oSmf&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://www.somanyceramics.com/static/images/colorato.jpg" alt="Colorato 1">
+                </div>
+                <div class="product-info">
+                    <h3>Colorato 1</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1ErVUz4I3IqxGsslKLSd0Z5tv4f-bLq8i&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://www.somanyceramics.com/static/images/jodhpur-blues-03.jpg" alt="Colorato 2">
+                </div>
+                <div class="product-info">
+                    <h3>Colorato 2</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1Umlk6kcz5eHZCgQ615WoSgcdZR7cz46O&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy5yQD5XXpzPjAghlgznIR4izWQ1_gw-fc_g&s"
+                        alt="Double Charge">
+                </div>
+                <div class="product-info">
+                    <h3>Double Charge</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1Sf9KZqxnZ18MwI2EM1tmBcRbELdwJO4k&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://images.orientbell.com/media/catalog/product/c/a/carving_colour_endless_carara_line.jpg"
+                        alt="Endless Carving">
+                </div>
+                <div class="product-info">
+                    <h3>Endless Carving</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1VxnKPoblaD5nmcyrS096I_6SVGBKpVrN&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://images.orientbell.com/media/catalog/product/c/a/carving_endless_silver_root_marble.jpg"
+                        alt="Endless">
+                </div>
+                <div class="product-info">
+                    <h3>Endless</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1eSTZRuSOm0WvEvXJ3p3V9SS-s2GKo5kn&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://res.cloudinary.com/dcqre7nop/image/upload/v1768754888/c6605f59-86e9-4435-b9e4-ac5c11ddb832.png"
+                        alt="Glacier">
+                </div>
+                <div class="product-info">
+                    <h3>Glacier</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1iy3gWdfIo-hafnls5ZF0dAp29Bc7nlWv&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=1NqRqOWlMHJMgjsMxdqH_Q4DH-30MvKHM&sz=w400"
+                        alt="GLOCID">
+                </div>
+                <div class="product-info">
+                    <h3>GLOCID</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1NqRqOWlMHJMgjsMxdqH_Q4DH-30MvKHM&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=1A4GmL_aZy8J6eqO96Cw_je58EaRZUATO&sz=w400"
+                        alt="Glossy 1">
+                </div>
+                <div class="product-info">
+                    <h3>Glossy 1</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1A4GmL_aZy8J6eqO96Cw_je58EaRZUATO&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=1nYo_2-XfEWoCLHu0qi23OTiSs5sVgZVa&sz=w400"
+                        alt="Glossy 2">
+                </div>
+                <div class="product-info">
+                    <h3>Glossy 2</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1nYo_2-XfEWoCLHu0qi23OTiSs5sVgZVa&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=10VsPWgPrfdw1I3IhKZLI96_ioGtJln3p&sz=w400"
+                        alt="Glossy 3">
+                </div>
+                <div class="product-info">
+                    <h3>Glossy 3</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=10VsPWgPrfdw1I3IhKZLI96_ioGtJln3p&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=16iFx8PTaG-KuQjb4X7ht83QWnrmGl9tg&sz=w400"
+                        alt="Golden HG">
+                </div>
+                <div class="product-info">
+                    <h3>Golden HG</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=16iFx8PTaG-KuQjb4X7ht83QWnrmGl9tg&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=1iYBWhDhCiXYTdk7hnCsPYvrI4jFgOfuL&sz=w400"
+                        alt="Granite">
+                </div>
+                <div class="product-info">
+                    <h3>Granite</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1iYBWhDhCiXYTdk7hnCsPYvrI4jFgOfuL&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=11nDd8yChOhxQRx58AaSj3hD31n_H4TUO&sz=w400"
+                        alt="High Glossy">
+                </div>
+                <div class="product-info">
+                    <h3>High Glossy</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=11nDd8yChOhxQRx58AaSj3hD31n_H4TUO&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=15aR6umGhzVGKzYQ6c1OWe6TOEOpTuxPc&sz=w400"
+                        alt="Iris 1">
+                </div>
+                <div class="product-info">
+                    <h3>Iris 1</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=15aR6umGhzVGKzYQ6c1OWe6TOEOpTuxPc&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=1qW_ya7wM_heiuk-UNea46bEVsOBB1nka&sz=w400"
+                        alt="Iris 2">
+                </div>
+                <div class="product-info">
+                    <h3>Iris 2</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1qW_ya7wM_heiuk-UNea46bEVsOBB1nka&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=13bl76YmurI52vB2x6Pwz874yV-1-xjhr&sz=w400"
+                        alt="Lapiz Black">
+                </div>
+                <div class="product-info">
+                    <h3>Lapiz Black</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=13bl76YmurI52vB2x6Pwz874yV-1-xjhr&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=1b_ffbwgNheyVSnZkI1NAa_siKjV2qjQ8&sz=w400"
+                        alt="Matt 1">
+                </div>
+                <div class="product-info">
+                    <h3>Matt 1</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/open?id=1b_ffbwgNheyVSnZkI1NAa_siKjV2qjQ8&usp=drive_copy"
+                    target="_blank" class="download-btn">
+                        alt="Matt 2">
+                </div>
+                <div class="product-info">
+                    <h3>Matt 2</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/thumbnail?id=1BMV0-IidZGji1Jp6oWDfH5LDvfkVEAYu&sz=w400"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=1Ecu4cefhCbR-oe3jx8TSrqiTv7nOkel8&sz=w400"
+                        alt="Pastel Glow">
+                </div>
+                <div class="product-info">
+                    <h3>Pastel Glow</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/thumbnail?id=1AHZTIkfNbCeHux3vtFPW9RTv8V6HZaEw&sz=w400"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=1Uc2Z0PlvmvBDmZcOAnZOzLmmfELTkbCh&sz=w400"
+                        alt="Sugar">
+                </div>
+                <div class="product-info">
+                    <h3>Sugar</h3>
+                    <p class="year">2023</p>
+                </div>
+                <a href="https://drive.google.com/thumbnail?id=1alpq0jFfhwsxK-bMuJA5e2QmFMb9tP_N&sz=w400"
+                    target="_blank" class="download-btn">
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=1cOBN6g9CZGMjlrXJQFHJbBe24u4QdISF&sz=w400"
+                        alt="12x24_MATT SERIES VOL-3">
+                </div>
+                <div class="product-info">
+                    <h3>12x24 MATT SERIES VOL-3</h3>
+                    <p class="year">2024</p>
+                </div>
+                <div class="product-actions">
+                    <a href="https://drive.google.com/file/d/1NDq8B_wS0FMRjlcFbP85bPsS4i_J-6Er/view?usp=drive_link"
+                        target="_blank" class="download-btn">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=1IfEXmzaS0WvZTU4_v2avL9u-b6cOH5BL&sz=w400"
+                        alt="12x24_RAIN DROP SERIES">
+                </div>
+                <div class="product-info">
+                    <h3>12x24 RAIN DROP SERIES</h3>
+                    <p class="year">2024</p>
+                </div>
+                <div class="product-actions">
+                    <a href="https://drive.google.com/file/d/1IfEXmzaS0WvZTU4_v2avL9u-b6cOH5BL/view?usp=drive_link"
+                        target="_blank" class="download-btn">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=1lAea3xDSqFdp9y9AdN_caD7rALEkdCu2&sz=w400"
+                        alt="12x24_SUGAR SERIES">
+                </div>
+                <div class="product-info">
+                    <h3>12x24 SUGAR SERIES</h3>
+                    <p class="year">2024</p>
+                </div>
+                <div class="product-actions">
+                    <a href="https://drive.google.com/file/d/1lAea3xDSqFdp9y9AdN_caD7rALEkdCu2/view?usp=drive_link"
+                        target="_blank" class="download-btn">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=1Wov-90cMQRYl1o5MXnMeAE1Dlto2U83H&sz=w400"
+                        alt="30x60 MIDNIGHT COLLECTION CATALOGUE">
+                </div>
+                <div class="product-info">
+                    <h3>30x60 MIDNIGHT COLLECTION</h3>
+                    <p class="year">2024</p>
+                </div>
+                <div class="product-actions">
+                    <a href="https://drive.google.com/file/d/1Wov-90cMQRYl1o5MXnMeAE1Dlto2U83H/view?usp=drive_link"
+                        target="_blank" class="download-btn">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=1a3e6J3Uwv1HkruoBqUHsv3bUrx_FGUYz&sz=w400"
+                        alt="CARFT_BROCHURE_80X160CM">
+                </div>
+                <div class="product-info">
+                    <h3>CARFT BROCHURE 80X160CM</h3>
+                    <p class="year">2024</p>
+                </div>
+                <div class="product-actions">
+                    <a href="https://drive.google.com/file/d/1a3e6J3Uwv1HkruoBqUHsv3bUrx_FGUYz/view?usp=drive_link"
+                        target="_blank" class="download-btn">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=1yt64aVw3mkNJqqlJ-TzAPjqjNrb0FyW-&sz=w400"
+                        alt="Colorica 300X300 Catalogue">
+                </div>
+                <div class="product-info">
+                    <h3>Colorica 300X300 Catalogue</h3>
+                    <p class="year">2024</p>
+                </div>
+                <div class="product-actions">
+                    <a href="https://drive.google.com/file/d/1yt64aVw3mkNJqqlJ-TzAPjqjNrb0FyW-/view?usp=drive_link"
+                        target="_blank" class="download-btn">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="https://drive.google.com/thumbnail?id=1eCQuOhg9eDQWcsnZbBhzvw8O8d5k8yhQ&sz=w400"
+                        alt="Colorica 300X600 Catalogue">
+                </div>
+                <div class="product-info">
+                    <h3>Colorica 300X600 Catalogue</h3>
+                    <p class="year">2024</p>
+                </div>
+                <div class="product-actions">
+                    <a href="https://drive.google.com/file/d/1eCQuOhg9eDQWcsnZbBhzvw8O8d5k8yhQ/view?usp=drive_link"
+                        target="_blank" class="download-btn">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <!-- About Section -->
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <h2> Itaria Ceramics </h2>
+                        <p>Leading the Future</p>
+                    </div>
+                    <p>Leading the way in global trade with excellence, integrity, and innovation. We connect markets
+                        and build lasting relationships through quality products and exceptional service.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/itaria.ceramics/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/itaria-ceramics-in/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#collections">Collections</a></li>
+                        <li><a href="#expertise">Our Expertise</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Our Products -->
+                <div class="footer-section">
+                    <h3 class="footer-heading">Our Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="collection.html">Ceramic Tiles</a></li>
+                        <li><a href="collection.html">Porcelain Tiles</a></li>
+                        <li><a href="collection.html">Mosaic Tiles</a></li>
+                        <li><a href="collection.html">Outdoor Tiles</a></li>
+                        <li><a href="collection.html">Bathroom Tiles</a></li>
+                        <li><a href="collection.html">Kitchen Tiles</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section" style="background: transparent; padding: 0; border: none; box-shadow: none;">
+                    <h3 class="footer-heading" style="color: #fff; margin-bottom: 15px;">Contact Us</h3>
+                    <div class="contact-info" style="color: #ccc; line-height: 1.8; background: transparent;">
+                        <div style="margin-bottom: 15px;">
+                            <strong style="color: #fff;">Manufacturing Facility</strong><br>309, INdr plaza, Halvad rd, Mahendranagar, Morbi, gujarat - 363642, India</p>
+                        </div>
+                        
+                        <div style="margin-bottom: 15px;">
+                            <strong style="color: #fff;">Office Address</strong><br>Itaria Ceramics, 1108 Sureshwari Techno IT Park premises, Boriwali West, Maharashtra - 400001, India</p>
+                        </div>
+                        
+                        <div style="margin-bottom: 10px;">
+                            <i class="fas fa-phone"></i>
+                            <p>+91 93079 95811</p>
+                        </div>
+                        
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <p><a href="mailto:livacom@outlook.com">livacom@outlook.com</a></p>
+                        </div>
+                        
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <p><a href="mailto:info@itariaceramics.com">info@itariaceramics.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Itaria Exim India. All Rights Reserved. | Designed with <i class="fas fa-heart"></i> by Itaria
+                    Exim Team</p>
+            </div>
+        </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919307995811" class="whatsapp-float" aria-label="Call on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <style>
+        /* WhatsApp Floating Button Styles */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #FFD700, #FFA500, #FFD700);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: whatsappPulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(135deg, #FFA500, #FFD700, #FFA500);
+        }
+
+        .whatsapp-float:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes whatsappPulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 30px rgba(255, 215, 0, 0.8);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-float {
+                bottom: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+        }
+    </style>
+
+        <!-- JavaScript -->
+        <script>
+            // Filter functionality
+            document.addEventListener('DOMContentLoaded', function () {
+                const filterButtons = document.querySelectorAll('.filter-btn');
+                const productCards = document.querySelectorAll('.product-card');
+                const activeFilters = {
+                    dimensions: null,
+                    thickness: null,
+                    finish: null
+                };
+
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        const filterType = this.closest('.filter-options').id;
+                        const filterValue = this.getAttribute('data-filter');
+
+                        // Remove active class from all buttons in the same filter group
+                        const parentContainer = this.closest('.filter-options');
+                        parentContainer.querySelectorAll('.filter-btn').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+
+                        // Toggle active class on clicked button
+                        const wasActive = this.classList.contains('active');
+                        this.classList.toggle('active');
+
+                        // Update active filters object
+                        if (filterType === 'dimensions-filter') {
+                            activeFilters.dimensions = wasActive ? null : filterValue;
+                        } else if (filterType === 'thickness-filter') {
+                            activeFilters.thickness = wasActive ? null : filterValue;
+                        } else if (filterType === 'finish-filter') {
+                            activeFilters.finish = wasActive ? null : filterValue;
+                        }
+
+                        // Filter products
+                        filterProducts();
+                    });
+                });
+
+                function filterProducts() {
+                    productCards.forEach(card => {
+                        const cardDimensions = card.getAttribute('data-dimensions');
+                        const cardThickness = card.getAttribute('data-thickness');
+                        const cardFinish = card.getAttribute('data-finish');
+
+                        let show = true;
+
+                        // Check each filter
+                        if (activeFilters.dimensions && cardDimensions !== activeFilters.dimensions) {
+                            show = false;
+                        }
+                        if (activeFilters.thickness && cardThickness !== activeFilters.thickness) {
+                            show = false;
+                        }
+                        if (activeFilters.finish && cardFinish !== activeFilters.finish) {
+                            show = false;
+                        }
+
+                        // Show or hide card with animation
+                        if (show) {
+                            card.style.display = 'flex';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'scale(1)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'scale(0.95)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                }
+            });
+
+            // Header scroll effect
+            document.addEventListener('DOMContentLoaded', function () {
+                const headerElement = document.getElementById('header');
+                const mobileMenu = document.getElementById('mobileMenu');
+
+                function updateHeader() {
+                    const logoImg = document.querySelector('.logo-img');
+                    if (window.scrollY > 10 || (mobileMenu && mobileMenu.classList.contains('active'))) {
+                        headerElement.classList.add('scrolled');
+                        if (logoImg) logoImg.style.maxWidth = '140px';
+                    } else {
+                        headerElement.classList.remove('scrolled');
+                        if (logoImg) logoImg.style.maxWidth = '180px';
+                    }
+                }
+
+                updateHeader();
+                window.addEventListener('scroll', updateHeader);
+
+                const mobileToggle = document.getElementById('mobileToggle');
+                if (mobileToggle) {
+                    mobileToggle.addEventListener('click', function () {
+                        setTimeout(updateHeader, 10);
+                    });
+                }
+            });
+
+            // Mobile menu functionality
+            document.addEventListener('DOMContentLoaded', function () {
+                const mobileToggle = document.getElementById('mobileToggle');
+                const mobileMenu = document.getElementById('mobileMenu');
+                const body = document.body;
+                const header = document.getElementById('header');
+
+                mobileToggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                    body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+
+                    if (mobileMenu.classList.contains('active')) {
+                        header.classList.add('scrolled');
+                    } else if (window.scrollY <= 50) {
+                        header.classList.remove('scrolled');
+                    }
+                });
+
+                document.addEventListener('click', function (e) {
+                    if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                        mobileToggle.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        body.style.overflow = '';
+
+                        if (window.scrollY <= 50) {
+                            header.classList.remove('scrolled');
+                        }
+                    }
+                });
+
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', function (e) {
+                        if (this.getAttribute('href').startsWith('#')) {
+                            e.preventDefault();
+                            const targetId = this.getAttribute('href');
+                            const targetElement = document.querySelector(targetId);
+
+                            if (targetElement) {
+                                mobileToggle.classList.remove('active');
+                                mobileMenu.classList.remove('active');
+                                body.style.overflow = '';
+
+                                window.scrollTo({
+                                    top: targetElement.offsetTop - 80,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        }
+                    });
+                });
+
+                let resizeTimer;
+                window.addEventListener('resize', function () {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(function () {
+                        if (window.innerWidth > 992) {
+                            mobileToggle.classList.remove('active');
+                            mobileMenu.classList.remove('active');
+                            body.style.overflow = '';
+                        }
+                    }, 250);
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#' && href.length > 1) {
+                        const target = document.querySelector(href);
+                        if (target) {
+                            e.preventDefault();
+                            window.scrollTo({
+                                top: target.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Function to convert Google Drive URLs to thumbnail URLs
+            function getDriveThumbnail(url) {
+                // Return if not a Google Drive URL or already a thumbnail
+                if (!url.includes('drive.google.com') || url.includes('thumbnail')) return url;
+
+                // Extract file ID from various Google Drive URL formats
+                let fileId = '';
+
+                if (url.includes('file/d/')) {
+                    // Format: https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+                    fileId = url.split('/d/')[1].split('/')[0].split('?')[0];
+                } else if (url.includes('open?')) {
+                    // Format: https://drive.google.com/open?id=FILE_ID
+                    const params = new URLSearchParams(url.split('?')[1]);
+                    fileId = params.get('id');
+                } else if (url.includes('uc?')) {
+                    // Format: https://drive.google.com/uc?export=view&id=FILE_ID
+                    const params = new URLSearchParams(url.split('?')[1]);
+                    fileId = params.get('id');
+                } else {
+                    return url; // Return original if format not recognized
+                }
+
+                // Return the thumbnail URL with w400 size
+                return `https://drive.google.com/thumbnail?id=${fileId}&sz=w400`;
+            }
+
+            // Update all Google Drive image sources on page load
+            document.addEventListener('DOMContentLoaded', function () {
+                const images = document.querySelectorAll('img[src*="drive.google.com"]');
+                images.forEach(img => {
+                    img.src = getDriveThumbnail(img.src);
+                });
+            });
+
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all product cards on page load
+            document.addEventListener('DOMContentLoaded', function () {
+                const cards = document.querySelectorAll('.product-card');
+                cards.forEach(card => {
+                    observer.observe(card);
+                });
+            });
+        </script>
+
+        <!-- Quick View Functionality -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Create quick view modal
+                const quickViewModal = document.createElement('div');
+                quickViewModal.id = 'quickViewModal';
+                quickViewModal.style.cssText = `
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        `;
+
+                quickViewModal.innerHTML = `
+            <div style="background: white; padding: 30px; border-radius: 10px; max-width: 800px; width: 90%; max-height: 90vh; overflow-y: auto; position: relative;">
+                <span style="position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer; color: #666;">&times;</span>
+                <div id="quickViewContent" style="display: flex; flex-wrap: wrap; gap: 20px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img id="quickViewImage" src="" alt="" style="width: 100%; height: auto; border-radius: 5px;">
+                    </div>
+                    <div style="flex: 1; min-width: 300px;">
+                        <h2 id="quickViewTitle" style="margin-top: 0; color: #333;"></h2>
+                        <p id="quickViewYear" style="color: #666; margin-bottom: 15px;"></p>
+                        <div id="quickViewActions" style="display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap;">
+                            <a href="#" id="quickViewDownload" class="download-btn" target="_blank" style="display: inline-flex; align-items: center; gap: 5px; padding: 10px 20px; background: #b8996f; color: white; text-decoration: none; border-radius: 30px; font-weight: 500; transition: all 0.3s ease; border: 2px solid #b8996f;">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                            <a href="#" id="quickViewCatalog" class="view-catalog-btn" style="display: inline-flex; align-items: center; gap: 5px; padding: 10px 20px; background: transparent; color: #b8996f; border: 2px solid #b8996f; text-decoration: none; border-radius: 30px; font-weight: 500; transition: all 0.3s ease;">
+                                <i class="fas fa-book-open"></i> View Catalog
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+                document.body.appendChild(quickViewModal);
+
+                // Close modal when clicking the close button or outside
+                const closeModal = () => {
+                    quickViewModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                };
+
+                quickViewModal.querySelector('span').addEventListener('click', closeModal);
+                quickViewModal.addEventListener('click', (e) => e.target === quickViewModal && closeModal());
+
+                // Close with Escape key
+                document.addEventListener('keydown', (e) => e.key === 'Escape' && closeModal());
+
+                // Add quick view buttons to all product cards
+                document.querySelectorAll('.product-card').forEach(card => {
+                    const quickViewBtn = document.createElement('button');
+                    quickViewBtn.innerHTML = '<i class="fas fa-search"></i> Quick View';
+                    quickViewBtn.style.cssText = `
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 8px 15px;
+                background: rgba(255, 255, 255, 0.95);
+                color: #333;
+                border: none;
+                border-radius: 30px;
+                font-size: 14px;
+                cursor: pointer;
+                opacity: 0;
+                transition: all 0.3s ease;
+                white-space: nowrap;
+                z-index: 2;
+                box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+                font-weight: 500;
+            `;
+
+                    // Show/hide on hover
+                    card.addEventListener('mouseenter', () => {
+                        quickViewBtn.style.opacity = '1';
+                        quickViewBtn.style.bottom = '20px';
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+                        quickViewBtn.style.opacity = '0';
+                        quickViewBtn.style.bottom = '10px';
+                    });
+
+                    // Position button
+                    const buttonContainer = document.createElement('div');
+                    buttonContainer.style.position = 'relative';
+                    buttonContainer.style.width = '100%';
+                    buttonContainer.style.height = '0';
+
+                    // Insert button container
+                    card.insertBefore(buttonContainer, card.firstChild);
+                    buttonContainer.appendChild(quickViewBtn);
+
+                    // Handle quick view click
+                    quickViewBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        // Get product details
+                        const title = card.querySelector('h3')?.textContent.trim() || 'Product';
+                        const year = card.querySelector('.year')?.textContent.trim() || '';
+                        const image = card.querySelector('img')?.src || '';
+                        const downloadLink = card.querySelector('.download-btn')?.href || '#';
+
+                        // Generate catalog URL
+                        const catalogSlug = title.toLowerCase()
+                            .replace(/[^\w\s-]/g, '')
+                            .replace(/\s+/g, '-')
+                            .replace(/-+/g, '-');
+                        const catalogLink = `catalogue.html#${catalogSlug}`;
+
+                        // Update modal content
+                        document.getElementById('quickViewTitle').textContent = title;
+                        document.getElementById('quickViewYear').textContent = year;
+                        document.getElementById('quickViewImage').src = image;
+                        document.getElementById('quickViewImage').alt = title;
+                        document.getElementById('quickViewDownload').href = downloadLink;
+
+                        // Set up catalog button
+                        const catalogBtn = document.getElementById('quickViewCatalog');
+                        catalogBtn.href = catalogLink;
+                        catalogBtn.onclick = (e) => {
+                            e.preventDefault();
+                            window.location.href = catalogLink;
+                            quickViewModal.style.display = 'none';
+                            document.body.style.overflow = 'auto';
+                            return false;
+                        };
+
+                        // Show modal
+                        quickViewModal.style.display = 'flex';
+                        document.body.style.overflow = 'hidden';
+                    });
+                });
+            });
+        </script>
+</body>
+
+</html>
